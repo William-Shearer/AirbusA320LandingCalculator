@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title></title>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="initial-scale=1, width=device-width">
+		<script>
+			const land_data = 	{	"DRY":
+									{	"MAN":
+										{	"FULL":
+											{	"RefDist": 3750,
+												"PoneTon": 140,
+												"PfiveK": 230,
+												"PthousandF": 130,
+												"PfiveKTW": 390,
+												"PtenISA": 110,
+												"PonePctDS": 60,
+												"PrevOp": -50,
+												"OVWProc": 2540
+											},
+										
+											"THREE":
+											{	"RefDist": 3830,
+												"PoneTon": 150,
+												"PfiveK": 250,
+												"PthousandF": 140,
+												"PfiveKTW": 390,
+												"PtenISA": 130,
+												"PonePctDS": 70,
+												"PrevOp": -50,
+												"OVWProc": 3080
+											},
+										},
+										"MED":
+										{	"FULL":
+											{	"RefDist": 4490,
+												"PoneTon": 100,
+												"PfiveK": 300,
+												"PthousandF": 150,
+												"PfiveKTW": 420,
+												"PtenISA": 140,
+												"PonePctDS": 30,
+												"PrevOp": 0,
+												"OVWProc": 750
+											},
+											"THREE":
+											{	"RefDist": 4760,
+												"PoneTon": 110,
+												"PfiveK": 310,
+												"PthousandF": 160,
+												"PfiveKTW": 440,
+												"PtenISA": 150,
+												"PonePctDS": 30,
+												"PrevOp": 0,
+												"OVWProc": 800
+											},
+										},
+										"LOW":
+										{	"FULL":
+											{	"RefDist": 6400,
+												"PoneTon": 140,
+												"PfiveK": 450,
+												"PthousandF": 230,
+												"PfiveKTW": 660,
+												"PtenISA": 220,
+												"PonePctDS": 80,
+												"PrevOp": -30,
+												"OVWProc": 850
+											},
+											"THREE":
+											{	"RefDist": 6840,
+												"PoneTon": 150,
+												"PfiveK": 470,
+												"PthousandF": 250,
+												"PfiveKTW": 680,
+												"PtenISA": 230,
+												"PonePctDS": 80,
+												"PrevOp": -30,
+												"OVWProc": 930
+											},
+										},
+									},
+									"GOOD":
+									{	"MAN":
+										{	"FULL":
+											{	"RefDist": 4620,
+												"PoneTon": 140,
+												"PfiveK": 350,
+												"PthousandF": 220,
+												"PfiveKTW": 670,
+												"PtenISA": 200,
+												"PonePctDS": 150,
+												"PrevOp": -120,
+												"OVWProc": 2030
+											},
+										
+											"THREE":
+											{	"RefDist": 5080,
+												"PoneTon": 170,
+												"PfiveK": 390,
+												"PthousandF": 250,
+												"PfiveKTW": 730,
+												"PtenISA": 230,
+												"PonePctDS": 190,
+												"PrevOp": -150,
+												"OVWProc": 2440
+											},
+										},
+										"MED":
+										{	"FULL":
+											{	"RefDist": 4790,
+												"PoneTon": 140,
+												"PfiveK": 360,
+												"PthousandF": 230,
+												"PfiveKTW": 680,
+												"PtenISA": 200,
+												"PonePctDS": 150,
+												"PrevOp": -50,
+												"OVWProc": 730
+											},
+											"THREE":
+											{	"RefDist": 5270,
+												"PoneTon": 160,
+												"PfiveK": 410,
+												"PthousandF": 260,
+												"PfiveKTW": 740,
+												"PtenISA": 230,
+												"PonePctDS": 190,
+												"PrevOp": -110,
+												"OVWProc": 780
+											},
+										},
+										"LOW":
+										{	"FULL":
+											{	"RefDist": 6400,
+												"PoneTon": 140,
+												"PfiveK": 450,
+												"PthousandF": 230,
+												"PfiveKTW": 660,
+												"PtenISA": 220,
+												"PonePctDS": 80,
+												"PrevOp": -30,
+												"OVWProc": 850
+											},
+											"THREE":
+											{	"RefDist": 6840,
+												"PoneTon": 150,
+												"PfiveK": 470,
+												"PthousandF": 250,
+												"PfiveKTW": 680,
+												"PtenISA": 230,
+												"PonePctDS": 80,
+												"PrevOp": -30,
+												"OVWProc": 910
+											},
+										},
+									},
+									"GOOD-TO-MEDIUM":
+									{	"MAN":
+										{	"FULL":
+											{	"RefDist": 5440,
+												"PoneTon": 120,
+												"PfiveK": 300,
+												"PthousandF": 190,
+												"PfiveKTW": 610,
+												"PtenISA": 190,
+												"PonePctDS": 230,
+												"PrevOp": -220,
+												"OVWProc": 2260
+											},
+										
+											"THREE":
+											{	"RefDist": 5910,
+												"PoneTon": 130,
+												"PfiveK": 330,
+												"PthousandF": 210,
+												"PfiveKTW": 630,
+												"PtenISA": 210,
+												"PonePctDS": 270,
+												"PrevOp": -270,
+												"OVWProc": 2740
+											},
+										},
+										"MED":
+										{	"FULL":
+											{	"RefDist": 5620,
+												"PoneTon": 110,
+												"PfiveK": 300,
+												"PthousandF": 200,
+												"PfiveKTW": 620,
+												"PtenISA": 190,
+												"PonePctDS": 240,
+												"PrevOp": -300,
+												"OVWProc": 670
+											},
+											"THREE":
+											{	"RefDist": 6140,
+												"PoneTon": 120,
+												"PfiveK": 320,
+												"PthousandF": 220,
+												"PfiveKTW": 650,
+												"PtenISA": 200,
+												"PonePctDS": 160,
+												"PrevOp": -370,
+												"OVWProc": 690
+											},
+										},
+										"LOW":
+										{	"FULL":
+											{	"RefDist": 6420,
+												"PoneTon": 140,
+												"PfiveK": 450,
+												"PthousandF": 230,
+												"PfiveKTW": 670,
+												"PtenISA": 220,
+												"PonePctDS": 160,
+												"PrevOp": -70,
+												"OVWProc": 850
+											},
+											"THREE":
+											{	"RefDist": 6880,
+												"PoneTon": 140,
+												"PfiveK": 460,
+												"PthousandF": 250,
+												"PfiveKTW": 700,
+												"PtenISA": 230,
+												"PonePctDS": 190,
+												"PrevOp": -100,
+												"OVWProc": 930
+											},
+										},
+									},
+									"MEDIUM":
+									{	"MAN":
+										{	"FULL":
+											{	"RefDist": 6090,
+												"PoneTon": 130,
+												"PfiveK": 330,
+												"PthousandF": 220,
+												"PfiveKTW": 710,
+												"PtenISA": 210,
+												"PonePctDS": 340,
+												"PrevOp": -300,
+												"OVWProc": 2150
+											},
+										
+											"THREE":
+											{	"RefDist": 6670,
+												"PoneTon": 140,
+												"PfiveK": 360,
+												"PthousandF": 240,
+												"PfiveKTW": 750,
+												"PtenISA": 240,
+												"PonePctDS": 390,
+												"PrevOp": -360,
+												"OVWProc": 2610
+											},
+										},
+										"MED":
+										{	"FULL":
+											{	"RefDist": 6280,
+												"PoneTon": 120,
+												"PfiveK": 320,
+												"PthousandF": 230,
+												"PfiveKTW": 730,
+												"PtenISA": 210,
+												"PonePctDS": 340,
+												"PrevOp": -400,
+												"OVWProc": 680
+											},
+											"THREE":
+											{	"RefDist": 6890,
+												"PoneTon": 130,
+												"PfiveK": 360,
+												"PthousandF": 250,
+												"PfiveKTW": 760,
+												"PtenISA": 240,
+												"PonePctDS": 410,
+												"PrevOp": -500,
+												"OVWProc": 710
+											},
+										},
+										"LOW":
+										{	"FULL":
+											{	"RefDist": 6740,
+												"PoneTon": 140,
+												"PfiveK": 420,
+												"PthousandF": 240,
+												"PfiveKTW": 760,
+												"PtenISA": 230,
+												"PonePctDS": 290,
+												"PrevOp": -200,
+												"OVWProc": 810
+											},
+											"THREE":
+											{	"RefDist": 7270,
+												"PoneTon": 150,
+												"PfiveK": 450,
+												"PthousandF": 260,
+												"PfiveKTW": 790,
+												"PtenISA": 260,
+												"PonePctDS": 350,
+												"PrevOp": -260,
+												"OVWProc": 880
+											},
+										},
+									},
+									"MEDIUM-TO-POOR":
+									{	"MAN":
+										{	"FULL":
+											{	"RefDist": 6820,
+												"PoneTon": 220,
+												"PfiveK": 510,
+												"PthousandF": 370,
+												"PfiveKTW": 1170,
+												"PtenISA": 350,
+												"PonePctDS": 500,
+												"PrevOp": -340,
+												"OVWProc": 1560
+											},
+										
+											"THREE":
+											{	"RefDist": 7790,
+												"PoneTon": 260,
+												"PfiveK": 600,
+												"PthousandF": 440,
+												"PfiveKTW": 1340,
+												"PtenISA": 420,
+												"PonePctDS": 660,
+												"PrevOp": -430,
+												"OVWProc": 1860
+											},
+										},
+										"MED":
+										{	"FULL":
+											{	"RefDist": 6910,
+												"PoneTon": 220,
+												"PfiveK": 520,
+												"PthousandF": 370,
+												"PfiveKTW": 1190,
+												"PtenISA": 350,
+												"PonePctDS": 510,
+												"PrevOp": -440,
+												"OVWProc": 780
+											},
+											"THREE":
+											{	"RefDist": 7840,
+												"PoneTon": 260,
+												"PfiveK": 630,
+												"PthousandF": 450,
+												"PfiveKTW": 1370,
+												"PtenISA": 410,
+												"PonePctDS": 680,
+												"PrevOp": -570,
+												"OVWProc": 920
+											},
+										},
+										"LOW":
+										{	"FULL":
+											{	"RefDist": 7000,
+												"PoneTon": 220,
+												"PfiveK": 530,
+												"PthousandF": 370,
+												"PfiveKTW": 1200,
+												"PtenISA": 340,
+												"PonePctDS": 520,
+												"PrevOp": -220,
+												"OVWProc": 800
+											},
+											"THREE":
+											{	"RefDist": 7930,
+												"PoneTon": 260,
+												"PfiveK": 630,
+												"PthousandF": 450,
+												"PfiveKTW": 1370,
+												"PtenISA": 410,
+												"PonePctDS": 690,
+												"PrevOp": -420,
+												"OVWProc": 950
+											},
+										},
+									},
+									"POOR":
+									{	"MAN":
+										{	"FULL":
+											{	"RefDist": 11320,
+												"PoneTon": 220,
+												"PfiveK": 480,
+												"PthousandF": 430,
+												"PfiveKTW": 1830,
+												"PtenISA": 520,
+												"PonePctDS": 3000,
+												"PrevOp": -1050,
+												"OVWProc": 1560
+											},
+										
+											"THREE":
+											{	"RefDist": 13000,
+												"PoneTon": 250,
+												"PfiveK": 550,
+												"PthousandF": 500,
+												"PfiveKTW": 1960,
+												"PtenISA": 610,
+												"PonePctDS": 3720,
+												"PrevOp": -1410,
+												"OVWProc": 1860
+											},
+										},
+										"MED":
+										{	"FULL":
+											{	"RefDist": 11510,
+												"PoneTon": 220,
+												"PfiveK": 460,
+												"PthousandF": 430,
+												"PfiveKTW": 1860,
+												"PtenISA": 510,
+												"PonePctDS": 3020,
+												"PrevOp": -1260,
+												"OVWProc": 790
+											},
+											"THREE":
+											{	"RefDist": 13180,
+												"PoneTon": 250,
+												"PfiveK": 550,
+												"PthousandF": 500,
+												"PfiveKTW": 1980,
+												"PtenISA": 590,
+												"PonePctDS": 3760,
+												"PrevOp": -1690,
+												"OVWProc": 920
+											},
+										},
+										"LOW":
+										{	"FULL":
+											{	"RefDist": 11590,
+												"PoneTon": 220,
+												"PfiveK": 460,
+												"PthousandF": 440,
+												"PfiveKTW": 1860,
+												"PtenISA": 510,
+												"PonePctDS": 3030,
+												"PrevOp": -1270,
+												"OVWProc": 800
+											},
+											"THREE":
+											{	"RefDist": 13250,
+												"PoneTon": 250,
+												"PfiveK": 550,
+												"PthousandF": 500,
+												"PfiveKTW": 1990,
+												"PtenISA": 590,
+												"PonePctDS": 3770,
+												"PrevOp": -1700,
+												"OVWProc": 950
+											},
+										},
+									},
+								};
+			
+			
+			function get_sel_data()
+			{
+				const rc = document.querySelector("#rwy-condition").value;
+				const br = document.querySelector("#braking").value;
+				const cf = document.querySelector("#config").value;
+				const sel_data = land_data[rc][br][cf];
+				console.log(sel_data);
+				return sel_data;
+			};
+						
+			function get_num_data()
+			{
+				const num_data = {
+								"lw": parseFloat(document.querySelector("#land-weight").value).toFixed(2),
+								"sp": parseFloat(document.querySelector("#speed").value).toFixed(2),
+								"el": parseFloat(document.querySelector("#elevation").value).toFixed(2),
+								"tw": parseFloat(document.querySelector("#tw").value).toFixed(2),
+								"ot": parseFloat(document.querySelector("#oat").value).toFixed(2),
+								"sl": parseFloat(document.querySelector("#slope").value).toFixed(2),
+								"nr": parseInt(document.querySelector("#reverse").value)
+							};
+				console.log(num_data);
+				return num_data;
+			};
+			
+			function weight_penalty(lw, pt)
+			{
+				let lwp = 0.0; 
+				if (lw <= 66.0)
+				{
+					return lwp;
+				}
+				else if (lw > 66)
+				{
+					lwp = (lw - 66.0) * pt;
+					return lwp;
+				};
+			};
+			
+			function speed_penalty(sp, pk)
+			{
+				let skp = 0.0;
+				if (sp <= 0.0)
+				{
+					return skp;
+				}
+				else if (sp > 0.0)
+				{
+					skp = (pk / 5) * sp;
+					return skp;
+				};
+				
+			};
+			
+			function elevation_penalty(el, pkft)
+			{
+				let elp = 0.0;
+				if (el <= 0.0)
+				{
+					return elp;
+				}
+				else if (el > 0.0)
+				{
+					elp = (pkft / 1000) * el;
+					return elp;
+				};
+			};
+			
+			function tailwind_penalty(tw, ptw)
+			{
+				let twp = 0.0;
+				if (tw <= 0.0)
+				{
+					return twp;
+				}
+				else if (tw > 0.0)
+				{
+					twp = (ptw / 5) * tw;
+					return twp;
+				};
+			};
+			
+			function ISA_penalty(el, ot, pISA)
+			{
+				let ISA = 15.0 - ((el / 1000) * 1.98);
+				let isap = 0.0;
+				if (ot <= ISA)
+				{
+					return isap;
+				}
+				else if (ot > ISA)
+				{
+					isap = (ot - ISA) * (pISA / 10);
+					return isap;
+				};
+			};
+			
+			function downslope_penalty(sl, pdsl)
+			{
+				let slp = 0.0;
+				if (sl <= 0.0)
+				{
+					return slp;
+				}
+				else if (sl > 0.0)
+				{
+					slp = sl * pdsl;
+					return slp;
+				};
+			};
+			
+			function reverser_gain(revs, prev)
+			{
+				let revg = 0.0;
+				if (revs == 0)
+				{
+					return revg;
+				}
+				else if (revs > 0)
+				{
+					revg = revs * prev;
+					return revg;
+				};
+			};
+			
+			function overweight_proc(lw, ovwproc)
+			{
+				if (lw <= 66.0)
+				{
+					return 0;
+				}
+				else if (lw > 66.0)
+				{
+					return ovwproc;
+				};
+			};
+			
+			function calculate()
+			{
+				const sel_data = get_sel_data();
+				const num_data = get_num_data();
+				// const rev_data = parseInt(document.querySelector("#reverse").value);
+				let landing_distance = sel_data["RefDist"];
+				// calculate weight penalty.
+				landing_distance += weight_penalty(num_data["lw"], sel_data["PoneTon"]);
+				// calculate speed penalty.
+				landing_distance += speed_penalty(num_data["sp"], sel_data["PfiveK"]);
+				// calculate elevation penalty.
+				landing_distance += elevation_penalty(num_data["el"], sel_data["PthousandF"]);
+				// calculate tailwind penalty.
+				landing_distance += tailwind_penalty(num_data["tw"], sel_data["PfiveKTW"]);
+				// calculate ISA penalty.
+				landing_distance += ISA_penalty(num_data["el"], num_data["ot"], sel_data["PtenISA"]);
+				// calculate downslope penalty.
+				landing_distance += downslope_penalty(num_data["sl"], sel_data["PonePctDS"]);
+				// calculate reverser gain.
+				landing_distance += reverser_gain(num_data["nr"], sel_data["PrevOp"]);
+				// calculate OVW Proc.
+				landing_distance += overweight_proc(num_data["lw"], sel_data["OVWProc"]);
+				// print result.
+				document.querySelector("#result").value = parseInt(landing_distance);
+			};
+			
+			document.addEventListener("DOMContentLoaded",
+				function()
+				{
+					
+					document.querySelector("#execute").onclick = calculate;
+									
+				}
+			);
+			
+		</script>
+	</head>
+	
+	<body>
+		<h2> A-320 Landing Distance Calculator</h2>
+		<table>
+			<tr>
+				<td style="width: 140px;">
+					<label for="rwy-condition">RWY Condition</label>
+				</td>
+				<td>
+					<select id="rwy-condition" style="width: 150px; margin-right: 5px;"">
+						<option value="DRY">Dry</option>
+						<option value="GOOD">Good</option>
+						<option value="GOOD-TO-MEDIUM">Good to Medium</option>
+						<option value="MEDIUM">Medium</option>
+						<option value="MEDIUM-TO-POOR">Medium to Poor</option>
+						<option value="POOR">Poor</option>
+					</select>
+				</td>
+				<td style="width: 140px;">
+					<label for="braking">Braking</label>
+				</td>
+				<td>
+					<select id="braking" style="width: 150px;">
+						<option value="MAN">Manual</option>
+						<option value="MED">Medium</option>
+						<option value="LOW">Low</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td>	
+					<label for="config">CONF</label>
+				</td>
+				<td>
+					<select id="config" style="width: 150px; margin-right: 5px;"">
+						<option value="FULL">Full</option>
+						<option value="THREE">Three</option>
+					</select>
+				</td>
+				<td>
+					<label for="reverse">Reversers</label>
+				</td>
+				<td>
+					<select id="reverse" style="width: 150px;">
+						<option value="2">Both</option>
+						<option value="1">One INOP</option>
+						<option value="0">No Revs</option>
+					</select>
+				</td>
+			</tr>
+		</table>
+		
+		
+		<h5>Aircraft</h5>
+		<table>
+			<tr>
+				<td style="width: 140px;">
+					<label for="land-weight">Landing Weight:</label>
+				</td>
+				<td>
+					<input type="number" id="land-weight" placeholder="Landing Weight" style="width: 140px; margin-right: 5px;">
+				</td>
+				<td style="width: 140px;">
+					<label for="speed">Extra Kts:</label>
+				</td>
+				<td>
+					<input type="number" id="speed" placeholder="Speed" style="width: 140px;">
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<label for="elevation">Elevation:</label>
+				</td>
+				<td>
+					<input type="number" id="elevation" placeholder="Elevation" style="width: 140px; margin-right: 5px;">
+				</td>
+			
+				<td>
+					<label for="tw">Tail Wind:</label>
+				</td>
+				<td>
+					<input type="number" id="tw" placeholder="Tail Wind" style="width: 140px;">
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<label for="oat">OAT:</label>
+				</td>
+				<td>
+					<input type="number" id="oat" placeholder="OAT" style="width: 140px; margin-right: 5px;"">
+				</td>
+			
+				<td>
+					<label for="slope">RWY Down Slope:</label>
+				</td>
+				<td>
+					<input type="number" id="slope" placeholder="Slope" style="width: 140px;">
+				</td>
+			</tr>
+		</table>	
+		<h5>Execute</h5>
+		<input type="button" id="execute" value="Execute" style="width: 140px;">
+		<input readonly type="number" id="result" placeholder="Result" style="width: 140px;">
+	</body>
+</html>
