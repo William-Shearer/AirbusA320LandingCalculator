@@ -200,7 +200,7 @@
 												"PthousandF": 220,
 												"PfiveKTW": 650,
 												"PtenISA": 200,
-												"PonePctDS": 160,
+												"PonePctDS": 280,
 												"PrevOp": -370,
 												"OVWProc": 690
 											},
@@ -464,7 +464,7 @@
 				const br = document.querySelector("#braking").value;
 				const cf = document.querySelector("#config").value;
 				const sel_data = land_data[rc][br][cf];
-				console.log(sel_data);
+				// console.log(sel_data);
 				return sel_data;
 			};
 						
@@ -479,7 +479,7 @@
 								"sl": parseFloat(document.querySelector("#slope").value).toFixed(2),
 								"nr": parseInt(document.querySelector("#reverse").value)
 							};
-				console.log(num_data);
+				// console.log(num_data);
 				return num_data;
 			};
 			
@@ -597,6 +597,8 @@
 			
 			function calculate()
 			{
+				//const entries = document.querySelectorAll("input[name=entry]");
+				//console.log(entries);
 				const sel_data = get_sel_data();
 				const num_data = get_num_data();
 				// const rev_data = parseInt(document.querySelector("#reverse").value);
@@ -621,12 +623,44 @@
 				document.querySelector("#result").value = parseInt(landing_distance);
 			};
 			
-			document.addEventListener("DOMContentLoaded",
-				function()
+			function validate(ent)
+			{
+				for (let i = 0; i < ent.length; i++)
 				{
+					if (isNaN(parseFloat(ent[i].value)))
+					{
+						alert("ERROR: \nPlease fill in all values in the fields.");
+						return false;
+					};
 					
-					document.querySelector("#execute").onclick = calculate;
-									
+					if (parseInt(ent[i].value) > parseInt(ent[i].max))
+					{
+						ent[i].value = ent[i].max;
+						alert(`WARNING: \nValue ${ent[i].id} exceeded maximum. \nCorrected to valid maximum.`)
+					}
+					else if (parseInt(ent[i].value) < parseInt(ent[i].min))
+					{
+						ent[i].value = ent[i].min;
+						alert(`WARNING: \nValue ${ent[i].id} below minimum. \nCorrected to valid mininum.`)
+					};
+				};
+				return true;
+			};
+			
+			
+			document.addEventListener("DOMContentLoaded", function()
+				{
+					document.querySelector("#execute").onclick = 
+					function()
+					{
+						// console.log("WE'RE HERE!");
+						const entries = document.querySelectorAll("input[name=entry]");
+						const proceed = validate(entries);
+						if (proceed == true)
+						{
+							calculate();
+						};
+					}
 				}
 			);
 			
@@ -685,52 +719,60 @@
 		</table>
 		
 		
-		<h5>Aircraft</h5>
 		<table>
-			<tr>
-				<td style="width: 140px;">
-					<label for="land-weight">Landing Weight:</label>
-				</td>
-				<td>
-					<input type="number" id="land-weight" placeholder="Landing Weight" style="width: 140px; margin-right: 5px;">
-				</td>
-				<td style="width: 140px;">
-					<label for="speed">Extra Kts:</label>
-				</td>
-				<td>
-					<input type="number" id="speed" placeholder="Speed" style="width: 140px;">
-				</td>
-			</tr>
-			<tr>
-				<td>
-					<label for="elevation">Elevation:</label>
-				</td>
-				<td>
-					<input type="number" id="elevation" placeholder="Elevation" style="width: 140px; margin-right: 5px;">
-				</td>
-			
-				<td>
-					<label for="tw">Tail Wind:</label>
-				</td>
-				<td>
-					<input type="number" id="tw" placeholder="Tail Wind" style="width: 140px;">
-				</td>
-			</tr>
-			<tr>
-				<td>
-					<label for="oat">OAT:</label>
-				</td>
-				<td>
-					<input type="number" id="oat" placeholder="OAT" style="width: 140px; margin-right: 5px;"">
-				</td>
-			
-				<td>
-					<label for="slope">RWY Down Slope:</label>
-				</td>
-				<td>
-					<input type="number" id="slope" placeholder="Slope" style="width: 140px;">
-				</td>
-			</tr>
+			<thead>
+				<tr>
+					<td style="font-weight: bold;">
+						Variable Data
+					</td>
+				</tr>
+			</thead>	
+			<tbody>
+				<tr>
+					<td style="width: 140px;">
+						<label for="land-weight">Landing Weight:</label>
+					</td>
+					<td>
+						<input type="number" name="entry" id="land-weight" placeholder="Landing Weight" min="36" max="78" style="width: 140px; margin-right: 5px;">
+					</td>
+					<td style="width: 140px;">
+						<label for="speed">Extra Kts:</label>
+					</td>
+					<td>
+						<input type="number" name="entry" id="speed" placeholder="Speed" min="0" max="45" style="width: 140px;">
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<label for="elevation">Elevation:</label>
+					</td>
+					<td>
+						<input type="number" name="entry" id="elevation" placeholder="Elevation" min="-1300" max="14000" style="width: 140px; margin-right: 5px;">
+					</td>
+				
+					<td>
+						<label for="tw">Tail Wind:</label>
+					</td>
+					<td>
+						<input type="number" name="entry" id="tw" placeholder="Tail Wind" min="0" max="15" style="width: 140px;">
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<label for="oat">OAT:</label>
+					</td>
+					<td>
+						<input type="number" name="entry" id="oat" placeholder="OAT" min="-70" max="55" style="width: 140px; margin-right: 5px;"">
+					</td>
+				
+					<td>
+						<label for="slope">RWY Down Slope:</label>
+					</td>
+					<td>
+						<input type="number" name="entry" id="slope" placeholder="Slope" min="0" max="2" style="width: 140px;">
+					</td>
+				</tr>
+			</tbody>
 		</table>	
 		<h5>Execute</h5>
 		<input type="button" id="execute" value="Execute" style="width: 140px;">
